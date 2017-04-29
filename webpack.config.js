@@ -25,17 +25,31 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          'style-loader',
+          'css-loader'
+          // 'postcss-loader',
+        ]
+      },
+      {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
         }
+      },
+      {
+        test: /muse-ui.src.*?js$/,
+        loader: 'babel-loader'
       }
     ]
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
+      'muse-components': 'muse-ui/src'
     }
   },
   devServer: {

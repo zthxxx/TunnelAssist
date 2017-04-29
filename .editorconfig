@@ -9,7 +9,11 @@ indent_size=4
 indent_style=space
 indent_size=2
 
-[*.{css,scss,sass,styl}]
+[*.{html,vue}]
+indent_style=space
+indent_size=2
+
+[*.{css,scss,sass,less,styl}]
 indent_style=space
 indent_size=2
 

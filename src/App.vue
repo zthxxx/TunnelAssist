@@ -1,47 +1,40 @@
 <template>
   <div class="container" id="app">
-    <header-nav></header-nav>
+    <HeaderNav @toggleOpen="toggleOpen" :sideOpen="sideOpen"></HeaderNav>
+    <SideNav @toggleOpen="toggleOpen" :open="sideOpen" :mdMobile="mdMobile"></SideNav>
+    <Contents :sideOpen="sideOpen"></Contents>
   </div>
 </template>
 
 <script>
-  import header from './components/header-nav.vue';
+  import HeaderNav from './components/HeaderNav.vue';
+  import SideNav from './components/SideNav.vue';
+  import Contents from './components/Contents.vue';
+
   export default {
     name: 'app',
     data () {
+      let vm = this;
+      let mdlMobile = window.matchMedia("screen and (max-width: 799px)");
+      mdlMobile.addListener(function(mdl){
+        vm.sideOpen = !mdl.matches;
+        vm.mdMobile = mdl.matches;
+      });
       return {
+        sideOpen: !mdlMobile.matches,
+        mdMobile: mdlMobile.matches
+      }
+    },
+    methods: {
+      toggleOpen () {
+        this.sideOpen = !this.sideOpen;
       }
     },
     components:{
-      'header-nav': header
+      HeaderNav,
+      SideNav,
+      Contents
     }
   }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
-  /*#app*/
-    /*font-family: 'Avenir', Helvetica, Arial, sans-serif*/
-    /*-webkit-font-smoothing: antialiased*/
-    /*-moz-osx-font-smoothing: grayscale*/
-    /*text-align: center*/
-    /*color: #2c3e50*/
-    /*margin-top: 60px*/
-
-
-  /*h1, h2*/
-    /*font-weight: normal*/
-
-
-  /*ul*/
-    /*list-style-type: none*/
-    /*padding: 0*/
-
-  /*li*/
-    /*display: inline-block*/
-    /*margin: 0 10px*/
-
-
-  /*a*/
-    /*color: #42b983*/
-
-</style>

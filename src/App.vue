@@ -1,7 +1,7 @@
 <template>
   <div class="container" id="app">
-    <HeaderNav @toggleOpen="toggleOpen" :sideOpen="sideOpen"></HeaderNav>
-    <SideNav @toggleOpen="toggleOpen" :open="sideOpen" :mdMobile="mdMobile"></SideNav>
+    <HeaderNav @toggleOpen="toggleOpen" :sideOpen="sideOpen" :title="headerTitle"></HeaderNav>
+    <SideNav @toggleOpen="toggleOpen" @navChange="navChange" :open="sideOpen" :mdMobile="mdMobile"></SideNav>
     <Contents :sideOpen="sideOpen"></Contents>
   </div>
 </template>
@@ -21,6 +21,7 @@
         vm.mdMobile = mdl.matches;
       });
       return {
+        headerTitle: "Index",
         sideOpen: !mdlMobile.matches,
         mdMobile: mdlMobile.matches
       }
@@ -28,6 +29,9 @@
     methods: {
       toggleOpen () {
         this.sideOpen = !this.sideOpen;
+      },
+      navChange (value) {
+        this.headerTitle = value;
       }
     },
     components:{

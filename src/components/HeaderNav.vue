@@ -1,5 +1,5 @@
 <template>
-  <mu-appbar title="Title" :class="{'header-appbar': true, 'nav-hide': !this.sideOpen}" :zDepth="0">
+  <mu-appbar :title="title" :class="{'header-appbar': true, 'nav-hide': !this.sideOpen}" :zDepth="0">
     <mu-icon-button icon="menu" @click="toggleOpen" slot="left"/>
     <mu-icon-button icon="expand_more" slot="right"/>
   </mu-appbar>
@@ -12,6 +12,10 @@
       sideOpen: {
         type: Boolean,
         default: true
+      },
+      title: {
+        type: String,
+        default: "Index"
       }
     },
     data () {

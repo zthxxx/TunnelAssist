@@ -4,22 +4,22 @@
       <mu-appbar title="隧道辅助计算" :zDepth="0"></mu-appbar>
       <mu-divider/>
       <div class="drawer-content">
-        <mu-list>
+        <mu-list :value="listNav" @change="choseChange">
           <mu-list-item title="配筋计算" toggleNested>
-            <mu-list-item title="A 顶板" slot="nested">
+            <mu-list-item title="A 顶板" value="配筋-顶板" slot="nested">
             </mu-list-item>
-            <mu-list-item title="B 底板" slot="nested">
+            <mu-list-item title="B 底板" value="配筋-底板" slot="nested">
             </mu-list-item>
-            <mu-list-item title="C 侧板" slot="nested">
+            <mu-list-item title="C 侧板" value="配筋-侧板" slot="nested">
             </mu-list-item>
           </mu-list-item>
           <mu-divider/>
           <mu-list-item title="荷载计算" toggleNested>
-            <mu-list-item title="A 顶板" slot="nested">
+            <mu-list-item title="A 顶板" value="荷载-顶板" slot="nested">
             </mu-list-item>
-            <mu-list-item title="B 底板" slot="nested">
+            <mu-list-item title="B 底板" value="荷载-底板" slot="nested">
             </mu-list-item>
-            <mu-list-item title="C 侧板" slot="nested">
+            <mu-list-item title="C 侧板" value="荷载-侧板" slot="nested">
             </mu-list-item>
           </mu-list-item>
         </mu-list>
@@ -43,11 +43,18 @@
     },
     data () {
       return {
+        listNav: ''
       }
     },
     methods: {
       toggleOpen () {
         this.$emit('toggleOpen');
+      },
+      choseChange (value) {
+        if (value != this.listNav) {
+          this.listNav = value;
+          this.$emit('navChange', value);
+        }
       }
     }
   }

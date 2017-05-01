@@ -10,13 +10,33 @@ export default {
       component: indexPage
     },
     {
-      path: '/reinforcing-bar-top',
+      path: '/bar-top',
       name: 'bar-top',
       component: barTop
     },
     {
-      path: '/reinforcing-bar-bottom',
+      path: '/bar-bottom',
       name: 'bar-bottom',
+      component: barBottom
+    },
+    {
+      path: '/bar-side',
+      name: 'bar-side',
+      component: barBottom
+    },
+    {
+      path: '/load-top',
+      name: 'load-top',
+      component: barTop
+    },
+    {
+      path: '/load-bottom',
+      name: 'load-bottom',
+      component: barTop
+    },
+    {
+      path: '/load-side',
+      name: 'load-side',
       component: barBottom
     },
     {

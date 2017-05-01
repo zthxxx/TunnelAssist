@@ -1,7 +1,14 @@
 <template>
   <div class="container" id="app">
     <HeaderNav @toggleOpen="toggleOpen" :sideOpen="sideOpen" :title="headerTitle"></HeaderNav>
-    <SideNav @toggleOpen="toggleOpen" @navChange="navChange" :open="sideOpen" :mdMobile="mdMobile"></SideNav>
+    <SideNav
+      @toggleOpen="toggleOpen"
+      @navChange="navChange"
+      :nav="nav"
+      :navTitle="navTitle"
+      :open="sideOpen"
+      :mdMobile="mdMobile"
+    ></SideNav>
     <Contents :sideOpen="sideOpen"></Contents>
   </div>
 </template>
@@ -10,6 +17,7 @@
   import HeaderNav from './components/HeaderNav.vue';
   import SideNav from './components/SideNav.vue';
   import Contents from './components/Contents.vue';
+  import nav from './nav'
 
   export default {
     name: 'app',
@@ -21,6 +29,8 @@
         vm.mdMobile = mdl.matches;
       });
       return {
+        nav,
+        navTitle: "隧道辅助计算",
         headerTitle: "Index",
         sideOpen: !mdlMobile.matches,
         mdMobile: mdlMobile.matches

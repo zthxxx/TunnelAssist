@@ -9,12 +9,31 @@
     <mu-card-text>
       {{description}}
     </mu-card-text>
-    <slot name="input" class="text-field"></slot>
+    <mu-card-text>
+      <mu-text-field
+        v-for="input of params.inputs"
+        :label="input.label"
+        v-model="input.value"
+        :key="input.label"
+        type="number"
+        labelFloat
+      ></mu-text-field>
+    </mu-card-text>
     <mu-card-actions>
-      <mu-raised-button label="计算输出" class="calc-button" secondary/>
+      <mu-raised-button label="计算输出" class="calc-button" @click="tiggerCalc" secondary/>
     </mu-card-actions>
     <mu-card-title  :title="outTitle"/>
-    <slot name="output"></slot>
+    <mu-card-text>
+      <mu-text-field
+        v-for="output of params.outputs"
+        :label="output.label"
+        v-model="output.value"
+        :key="output.label"
+        type="number"
+        labelFloat
+        disabled
+      ></mu-text-field>
+    </mu-card-text>
   </mu-card>
 </template>
 
@@ -46,6 +65,10 @@
         type: String,
         default: '输出结果'
       },
+      params: {
+        type: Object,
+        default: {inputs:[], outputs:[]}
+      }
     },
     data () {
       return {
@@ -53,6 +76,11 @@
     },
     components:{
       FormulaCard
+    },
+    methods : {
+      tiggerCalc () {
+        this.$emit('calculate');
+      }
     }
   }
 </script>

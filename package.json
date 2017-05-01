@@ -19,6 +19,7 @@
     "cross-env": "^3.0.0",
     "css-loader": "^0.25.0",
     "file-loader": "^0.9.0",
+    "keycode": "^2.1.8",
     "muse-ui": "^2.0.2",
     "style-loader": "^0.16.1",
     "stylus": "^0.54.5",

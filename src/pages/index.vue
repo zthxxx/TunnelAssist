@@ -1,21 +1,21 @@
 <template>
   <mu-card>
-    <mu-card-header title="Myron Avatar" subTitle="sub title">
-      <mu-avatar src="/src/assets/images/uicon.jpg" slot="avatar"/>
+    <mu-card-header title="Author zthxxx" subTitle="Link blog.zthxxx.me">
+      <mu-avatar src="/src/assets/images/author.jpg" slot="avatar"/>
     </mu-card-header>
-    <mu-card-media title="Image Title" subTitle="Image Sub Title">
-      <img src="/src/assets/images/sun.jpg" />
+    <mu-card-media title="城市下穿隧道辅助设计程序" subTitle="模型公式计算">
+      <img src="/src/assets/images/tunnel.jpg" />
     </mu-card-media>
-    <mu-card-title title="Content Title" subTitle="Content Title"/>
+    <mu-card-title title="使用简介" subTitle="instruction"/>
     <mu-card-text>
-      散落在指尖的阳光，我试着轻轻抓住光影的踪迹，它却在眉宇间投下一片淡淡的阴影。
-      调皮的阳光掀动了四月的心帘，温暖如约的歌声渐起。
-      似乎在诉说着，我也可以在漆黑的角落里，找到阴影背后的阳光，
-      找到阳光与阴影奏出和谐的旋律。我要用一颗敏感赤诚的心迎接每一缕滑过指尖的阳光！
+      左侧为计算模型导航栏，每栏里面可点击进入到具体模型开始计算。
+      <br/>
+      每个算子需要输入参数，然后点击计算得出结果。
+      <br/>
+      输入参数处请输入数字，计算结果处只能输出不能修改。
     </mu-card-text>
     <mu-card-actions>
-      <mu-flat-button label="Action 1"/>
-      <mu-flat-button label="Action 2"/>
+      <mu-raised-button label=" 开 始 使 用 " :to="{name: 'bar-top'}" secondary/>
     </mu-card-actions>
   </mu-card>
 </template>

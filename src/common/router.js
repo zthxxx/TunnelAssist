@@ -1,6 +1,6 @@
-import indexPage from './pages/index.vue'
-import barTop from './pages/bar-top/bar-top.vue'
-import barBottom from './pages/bar-bottom/bar-bottom.vue'
+import indexPage from '../pages/index.vue'
+import barTop from '../pages/bar-top/bar-top.vue'
+import barBottom from '../pages/bar-bottom/bar-bottom.vue'
 
 export default {
   routes: [

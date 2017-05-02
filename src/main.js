@@ -7,7 +7,7 @@ import 'muse-ui/dist/theme-light.css' // 使用 carbon 主题
 Vue.use(VueRouter);
 Vue.use(MuseUI);
 
-import RouteConfig from './router'
+import RouteConfig from './common/router'
 const router = new VueRouter(RouteConfig);
 
 import App from './App.vue'

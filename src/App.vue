@@ -17,7 +17,7 @@
   import HeaderNav from './components/HeaderNav.vue';
   import SideNav from './components/SideNav.vue';
   import Contents from './components/Contents.vue';
-  import nav from './nav'
+  import nav from './common/nav'
 
   export default {
     name: 'app',

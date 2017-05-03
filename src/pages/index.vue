@@ -1,10 +1,10 @@
 <template>
   <mu-card>
     <mu-card-header title="Author zthxxx" subTitle="Link blog.zthxxx.me">
-      <mu-avatar src="/src/assets/images/author.jpg" slot="avatar"/>
+      <mu-avatar src="../src/assets/images/author.jpg" slot="avatar"/>
     </mu-card-header>
     <mu-card-media title="城市下穿隧道辅助设计程序" subTitle="模型公式计算">
-      <img src="/src/assets/images/tunnel.jpg" />
+      <img src="../src/assets/images/tunnel.jpg" />
     </mu-card-media>
     <mu-card-title title="使用简介" subTitle="instruction"/>
     <mu-card-text>

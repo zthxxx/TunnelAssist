@@ -1,6 +1,10 @@
-# webpack-simple-demo
+# Tunnel Assist
 
-> A Vue.js project
+> A SPA for assist calculate tunnel model by VUE2.
+
+It like a dedicated formula calculator, you can input some params, and then, it will calculate result with appointed model formula.
+
+
 
 ## Build Setup
 
@@ -12,7 +16,11 @@ npm install
 npm run dev
 
 # build for production with minification
-npm run build
+npm run build-pro
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+## License
+
+GPL

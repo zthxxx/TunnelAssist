@@ -1,7 +1,7 @@
 <template>
   <mu-paper>
     <mu-drawer left :open="open" :zDepth="0" :docked="!mdMobile" @close="toggleOpen">
-      <router-link to="/">
+      <router-link to="" @click.native="choseChange({value:'Index',to:'/'})">
         <mu-appbar :title="navTitle" :zDepth="0"/>
       </router-link>
       <mu-divider/>

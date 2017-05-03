@@ -26,8 +26,7 @@
     data () {
       return {
       }
-    },
-    components: {}
+    }
   }
 </script>
 

@@ -19,10 +19,12 @@ let params = {
     },
     C : {
       label: "顶板混凝土等级 C",
+      type: String,
       value: ''
     },
     G : {
       label: "钢筋种类 G",
+      type: String,
       value: ''
     }
   },
@@ -32,7 +34,7 @@ let params = {
       value: ''
     },
     "A_s1" : {
-      label: "B 受压区钢筋面积 As'",
+      label: "B 受拉区钢筋面积 As'",
       value: ''
     }
   }
@@ -69,7 +71,8 @@ class BarTop extends CalculateBase {
     let f_y = SteelbarTensileStrength[G] || 0;
     let f_y1 = SteelbarCompressiveStrength[G] || 0;
     let E_s = ElasticModulus[G] || 0;
-    let zeta_1 = Math.min(0.5 * f_c / N, 1);
+    let A = h * L;
+    let zeta_1 = Math.min(0.5 * f_c * A / N, 1);
     let zeta_2 = Math.min(1.15 - 0.01 * l_0 / h, 1);
     let eta = 1 + 1 / (1400 * e_i / h_0) * Math.pow(l_0 / h, 2) * zeta_1 * zeta_2;
     let e = eta * e_i + h / 2 + a_s;
@@ -106,10 +109,9 @@ class BarTop extends CalculateBase {
   };
   getOutputA_s1 (assist) {
     let _ = assist;
-    // let x = _.h_0 - Math.sqrt(Math.pow(_.h_0, 2) - 2 * (_.N * _.e - _.fy1 * _.A_s))
     let A_s1 = _.N * (_.eta * _.e_i - _.h / 2 + _.a_s) / (_.f_y * (_.h_0 - _.a_s));
     if (!(A_s1 > _.rho_min * _.b * _.h)) console.warn("验算 As' > pbh 不通过");
-    return A_s1
+    return A_s1;
   };
   calculate() {
     let assist = this.getAssistVar();

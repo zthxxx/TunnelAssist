@@ -39,7 +39,7 @@ export const ElasticModulus = {
   '预应力螺纹钢筋' : 2.0,
   '消除应力钢丝' : 2.05,
   '中强度预应力钢丝' : 2.05,
-  '刚绞线' : 1.95
+  '钢绞线' : 1.95
 };
 
 
@@ -49,8 +49,10 @@ class CalculateBase {
     this.inputs = params.inputs;
     this.outputs = params.outputs;
   };
-  filterInput(){
+  filterInputToNumber(){
     for (let key in this.inputs) {
+      if ('type' in this.inputs[key] && this.inputs[key].type != Number)
+        continue;
       if (!(this.inputs[key].value instanceof Number)) {
         this.inputs[key].value = Number(this.inputs[key].value);
       }
@@ -60,7 +62,7 @@ class CalculateBase {
     // virtual methods
   };
   getResult() {
-    this.filterInput();
+    this.filterInputToNumber();
     this.calculate();
   };
 

@@ -14,7 +14,7 @@ let params = {
       value: ''
     },
     L : {
-      label: "结构净宽 L",
+      label: "结构净高 H",
       value: ''
     },
     C : {

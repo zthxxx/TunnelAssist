@@ -1,6 +1,7 @@
 import indexPage from '../pages/index.vue'
 import barTop from '../pages/bar-top/bar-top.vue'
 import barBottom from '../pages/bar-bottom/bar-bottom.vue'
+import barSide from '../pages/bar-side/bar-side.vue'
 
 export default {
   routes: [
@@ -22,7 +23,7 @@ export default {
     {
       path: '/bar-side',
       name: 'bar-side',
-      component: barBottom
+      component: barSide
     },
     {
       path: '/load-top',

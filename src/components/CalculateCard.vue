@@ -15,7 +15,7 @@
         :label="input.label"
         v-model="input.value"
         :key="input.label"
-        type="number"
+        :type="input.type == String ? 'text' : 'number'"
         labelFloat
       ></mu-text-field>
     </mu-card-text>

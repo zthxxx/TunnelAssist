@@ -23,11 +23,11 @@
   @import "../css/_variables"
 
   .formula
-    font-size: 2.5rem
+    font-size: 2rem
     font-family: SimSun
     transition: transit-bezier
 
   @media mq-mobile
     .formula
-      font-size: 2rem
+      font-size: 1.6rem
 </style>

@@ -14,7 +14,7 @@
       }
     },
     mounted () {
-      MathJax.Hub.Queue(["Typeset", MathJax.Hub, this.$el]);
+      MathJax.Hub.Queue(['Typeset', MathJax.Hub, this.$el]);
     }
   }
 </script>

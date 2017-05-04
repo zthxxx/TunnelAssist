@@ -61,6 +61,7 @@
           this.chosedNav = item;
           this.$emit('navChange', item.value);
           this.$router.push(item.to);
+          if (this.mdMobile) this.toggleOpen();
         }
       }
     }

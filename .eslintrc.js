@@ -30,6 +30,10 @@ module.exports = {
   },
   'globals': {
     'MathJax': true,
-    'require': true
+    'require': true,
+    "expect": true,
+    "sinon": true,
+    "exports": true,
+    "module": true
   }
 };

@@ -67,19 +67,19 @@
       },
       params: {
         type: Object,
-        default: {inputs:[], outputs:[]}
+        default: {inputs: [], outputs: []}
       }
     },
     data () {
       return {
       }
     },
-    components:{
+    components: {
       FormulaCard
     },
-    methods : {
+    methods: {
       tiggerCalc () {
-        this.$emit('calculate');
+        this.$emit('calculate')
       }
     }
   }

@@ -15,7 +15,7 @@
       },
       title: {
         type: String,
-        default: "Index"
+        default: 'Index'
       }
     },
     data () {

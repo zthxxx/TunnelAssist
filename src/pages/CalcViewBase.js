@@ -2,7 +2,7 @@ import Vue from 'vue'
 import CalcViewCompBase from './CalcViewCompBase.vue'
 
 class CalcViewBase {
-  constructor(instruction, model, name='') {
+  constructor (instruction, model, name='') {
     let _params;
     if (name != '') this.name = name;
     if ('inputs' in model && 'outputs' in model) {
@@ -21,7 +21,7 @@ class CalcViewBase {
     };
     this.methods = {
       calculate () {
-        if('model' in this && 'getResult' in this.model)
+        if ('model' in this && 'getResult' in this.model)
           this.model.getResult();
       }
     };
@@ -33,7 +33,7 @@ class CalcViewBase {
         mixins: [CalcViewCompBase]
       })
     };
-  };
+  }
 }
 
 export default function (instruction, model, name) {

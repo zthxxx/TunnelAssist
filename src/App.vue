@@ -23,15 +23,15 @@
     name: 'app',
     data () {
       let vm = this;
-      let mdlMobile = window.matchMedia("screen and (max-width: 799px)");
-      mdlMobile.addListener(function(mdl){
+      let mdlMobile = window.matchMedia('screen and (max-width: 799px)');
+      mdlMobile.addListener(function (mdl) {
         vm.sideOpen = !mdl.matches;
         vm.mdMobile = mdl.matches;
       });
       return {
         nav,
-        navTitle: "隧道辅助计算",
-        headerTitle: "Index",
+        navTitle: '隧道辅助计算',
+        headerTitle: 'Index',
         sideOpen: !mdlMobile.matches,
         mdMobile: mdlMobile.matches
       }

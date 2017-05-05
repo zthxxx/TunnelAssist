@@ -19,7 +19,7 @@
   let instruction = {
     header: {
       title: '配筋计算过程',
-      subTitle: "核心公式展示"
+      subTitle: '核心公式展示'
     },
     title: '底板计算',
     description: '在下列输入框中输入所需参数，并点击计算获得结果，参数仅限数值类型。',

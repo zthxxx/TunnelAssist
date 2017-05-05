@@ -1,40 +1,39 @@
-
 let params = {
   inputs: {
-    h : {
-      label: "顶板厚度 h",
+    h: {
+      label: '顶板厚度 h',
       value: ''
     },
-    M : {
-      label: "弯矩设计值 M",
+    M: {
+      label: '弯矩设计值 M',
       value: ''
     },
-    N : {
-      label: "轴力设计值 N",
+    N: {
+      label: '轴力设计值 N',
       value: ''
     },
-    L : {
-      label: "结构净宽 L",
+    L: {
+      label: '结构净宽 L',
       value: ''
     },
-    C : {
-      label: "顶板混凝土等级 C",
+    C: {
+      label: '顶板混凝土等级 C',
       type: String,
       value: ''
     },
-    G : {
-      label: "钢筋种类 G",
+    G: {
+      label: '钢筋种类 G',
       type: String,
       value: ''
     }
   },
   outputs: {
-    "A_s" : {
-      label: "A 受压区钢筋面积 As",
+    'A_s': {
+      label: 'A 受压区钢筋面积 As',
       value: ''
     },
-    "A_s1" : {
-      label: "B 受拉区钢筋面积 As'",
+    'A_s1': {
+      label: 'B 受拉区钢筋面积 As`',
       value: ''
     }
   }
@@ -51,7 +50,8 @@ import {
 class BarTop extends CalculateBase {
   constructor (params) {
     super(params);
-  };
+  }
+
   getAssistVar(){
     const b = 1000;
     const rho_min = 0.002;
@@ -77,7 +77,7 @@ class BarTop extends CalculateBase {
     let eta = 1 + 1 / (1400 * e_i / h_0) * Math.pow(l_0 / h, 2) * zeta_1 * zeta_2;
     let e = eta * e_i + h / 2 + a_s;
     let zeta_b = 0.8 / (1 + f_y / (0.0033 * E_s));
-    console.log(eta * e_i > 0.3 * h_0 ? "偏心距大" : "偏心距小");
+    console.warn(eta * e_i > 0.3 * h_0 ? '偏心距大': '偏心距小');
 
     let assist = {
       b,
@@ -98,31 +98,33 @@ class BarTop extends CalculateBase {
     };
 
     return assist;
-  };
+  }
+
   getOutputA_s (assist) {
     let _ = assist;
     let A_s = _.N * _.e - _.f_c * _.b * Math.pow(_.h_0, 2) * _.zeta_b * (1 - 0.5 * _.zeta_b) ;
     A_s = A_s / (_.f_y * (_.h_0 - _.a_s));
     _.A_s = A_s;
-    if (!(A_s > _.rho_min * _.b * _.h)) console.warn("验算 As > pbh 不通过");
+    if (!(A_s > _.rho_min * _.b * _.h)) console.warn('验算 As > pbh 不通过');
     return A_s;
-  };
+  }
+
   getOutputA_s1 (assist) {
     let _ = assist;
     let A_s1 = _.N * (_.eta * _.e_i - _.h / 2 + _.a_s) / (_.f_y * (_.h_0 - _.a_s));
-    if (!(A_s1 > _.rho_min * _.b * _.h)) console.warn("验算 As' > pbh 不通过");
+    if (!(A_s1 > _.rho_min * _.b * _.h)) console.warn('验算 As` > pbh 不通过');
     return A_s1;
-  };
+  }
+
   calculate() {
     let assist = this.getAssistVar();
     let _ = assist;
     let A_s = this.getOutputA_s(assist);
     let A_s1 = this.getOutputA_s1(assist);
-    if (!(_.e_0 < _.zeta_b* _.h_0)) console.warn("需要验算");
+    if (!(_.e_0 < _.zeta_b* _.h_0)) console.warn('需要验算');
     this.outputs.A_s.value = A_s;
     this.outputs.A_s1.value = A_s1;
-  };
-
+  }
 }
 
 export default new BarTop(params)

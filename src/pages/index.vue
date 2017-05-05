@@ -1,7 +1,7 @@
 <template>
   <mu-card>
     <mu-card-header title="Author zthxxx" subTitle="Link blog.zthxxx.me">
-      <mu-avatar :src="authorImg" slot="avatar"/>
+      <mu-avatar :src="require('../assets/images/author.jpg')" slot="avatar"/>
     </mu-card-header>
     <mu-card-media title="城市下穿隧道辅助设计程序" subTitle="模型公式计算">
       <img src="../assets/images/tunnel.jpg" />
@@ -21,12 +21,10 @@
 </template>
 
 <script>
-  let authorImg = require('../assets/images/author.jpg');
   export default {
     name: 'CalculateCard',
     data () {
       return {
-        authorImg
       }
     }
   }

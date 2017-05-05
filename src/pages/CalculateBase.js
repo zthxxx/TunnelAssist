@@ -42,7 +42,25 @@ export const ElasticModulus = {
   '钢绞线': 1.95
 };
 
+export const NaturalDensity = {
+  '杂填土': 16,
+  '粉土': 18,
+  '细砂': 19,
+  '圆砾土': 19.5,
+  '粉质粘土': 20,
+  '卵石土': 20,
+  '基岩': 22
+};
 
+export const InnerFrictionAngel = {
+  '杂填土': 20,
+  '粉土': 21,
+  '细砂': 22,
+  '圆砾土': 25,
+  '粉质粘土': 23,
+  '卵石土': 27,
+  '基岩': 35
+};
 
 class CalculateBase {
   constructor (params) {
@@ -50,7 +68,7 @@ class CalculateBase {
     this.outputs = params.outputs;
   }
 
-  filterInputToNumber(){
+  filterInputToNumber (){
     for (let key in this.inputs) {
       if ('type' in this.inputs[key] && this.inputs[key].type != Number)
         continue;
@@ -59,12 +77,15 @@ class CalculateBase {
       }
     }
   }
+  getVar (name) {
+    if (name in this.inputs) return this.inputs[name].value;
+  }
 
-  calculate() {
+  calculate () {
     // virtual methods
   }
 
-  getResult() {
+  getResult () {
     this.filterInputToNumber();
     this.calculate();
   }

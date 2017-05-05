@@ -2,11 +2,14 @@ import indexPage from '../pages/index.vue'
 import barTop from '../pages/bar-top/bar-top.vue'
 import barBottom from '../pages/bar-bottom/bar-bottom.vue'
 import barSide from '../pages/bar-side/bar-side.vue'
+import loadTop from '../pages/load-top/load-top.vue'
+import loadBottom from '../pages/load-bottom/load-bottom.vue'
+import loadSide from '../pages/load-side/load-side.vue'
 
 export default {
   routes: [
     {
-      path: '/', 
+      path: '/',
       name: 'index',
       component: indexPage
     },
@@ -28,17 +31,17 @@ export default {
     {
       path: '/load-top',
       name: 'load-top',
-      component: barTop
+      component: loadTop
     },
     {
       path: '/load-bottom',
       name: 'load-bottom',
-      component: barTop
+      component: loadBottom
     },
     {
       path: '/load-side',
       name: 'load-side',
-      component: barBottom
+      component: loadSide
     },
     {
       path: '*',

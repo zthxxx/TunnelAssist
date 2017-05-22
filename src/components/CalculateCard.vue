@@ -12,12 +12,19 @@
     <mu-card-text>
       <mu-text-field
         v-for="input of params.inputs"
+        v-if="input.type == Number || input.type == undefined "
         :label="input.label"
         v-model="input.value"
         :key="input.label"
-        :type="input.type == String ? 'text' : 'number'"
+        type="number"
         labelFloat
       ></mu-text-field>
+      <br/>
+      <mu-select-field
+        v-for="select of params.selects" v-model="select.value"
+        :label="select.label" :key="select" :maxHeight="300">
+        <mu-menu-item v-for="item in select.items" :key="item" :title="item" :value="item"/>
+      </mu-select-field>
     </mu-card-text>
     <mu-card-actions>
       <mu-raised-button label="计算输出" class="calc-button" @click="tiggerCalc" secondary/>
@@ -34,11 +41,13 @@
         disabled
       ></mu-text-field>
     </mu-card-text>
+    <WarnSnackbar/>
   </mu-card>
 </template>
 
 <script>
   import FormulaCard from './FormulaCard.vue'
+  import WarnSnackbar from './WarnSnackbar.vue'
   export default {
     name: 'CalculateCard',
     props: {
@@ -67,7 +76,7 @@
       },
       params: {
         type: Object,
-        default: {inputs: [], outputs: []}
+        default: {inputs: [], selects: [],outputs: []}
       }
     },
     data () {
@@ -75,7 +84,8 @@
       }
     },
     components: {
-      FormulaCard
+      FormulaCard,
+      WarnSnackbar
     },
     methods: {
       tiggerCalc () {

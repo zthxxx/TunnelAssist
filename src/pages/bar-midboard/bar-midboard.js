@@ -13,7 +13,7 @@ let params = {
       value: ''
     },
     L: {
-      label: '结构净宽 L',
+      label: '结构净高 H',
       value: ''
     }
   },
@@ -53,7 +53,7 @@ import {
   ElasticModulus
 } from '../CalculateBase'
 
-class BarBottom extends CalculateBase {
+class BarMidboard extends CalculateBase {
   constructor (params) {
     super(params);
   }
@@ -145,4 +145,4 @@ class BarBottom extends CalculateBase {
   }
 }
 
-export default new BarBottom(params)
+export default new BarMidboard(params)

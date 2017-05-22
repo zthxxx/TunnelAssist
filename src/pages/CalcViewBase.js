@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import CalcViewCompBase from './CalcViewCompBase.vue'
 
+export const warnbus = new Vue();
+
 class CalcViewBase {
   constructor (instruction, model, name='') {
     let _params;
@@ -8,6 +10,7 @@ class CalcViewBase {
     if ('inputs' in model && 'outputs' in model) {
       _params = {
         inputs: model.inputs,
+        selects: model.selects || [],
         outputs: model.outputs
       };
     }

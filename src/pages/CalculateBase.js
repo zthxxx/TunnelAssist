@@ -18,28 +18,24 @@ export const AxisCompressiveStrength = {
 
 
 export const SteelbarTensileStrength = {
-  '300': 270,
-  '335': 300,
-  '400': 360,
-  '500': 435
+  '300系列': 270,
+  '335系列': 300,
+  '400系列': 360,
+  '500系列': 435
 };
 
 export const SteelbarCompressiveStrength = {
-  '300': 270,
-  '335': 300,
-  '400': 360,
-  '500': 410
+  '300系列': 270,
+  '335系列': 300,
+  '400系列': 360,
+  '500系列': 410
 };
 
 export const ElasticModulus = {
-  '300': 2.1,
-  '335': 2.0,
-  '400': 2.0,
-  '500': 2.0,
-  '预应力螺纹钢筋': 2.0,
-  '消除应力钢丝': 2.05,
-  '中强度预应力钢丝': 2.05,
-  '钢绞线': 1.95
+  '300系列': 2.1,
+  '335系列': 2.0,
+  '400系列': 2.0,
+  '500系列': 2.0
 };
 
 export const NaturalDensity = {
@@ -62,9 +58,12 @@ export const InnerFrictionAngel = {
   '基岩': 35
 };
 
+import {warnbus} from './CalcViewBase'
+
 class CalculateBase {
   constructor (params) {
     this.inputs = params.inputs;
+    this.selects = params.selects;
     this.outputs = params.outputs;
   }
 
@@ -83,6 +82,10 @@ class CalculateBase {
 
   calculate () {
     // virtual methods
+  }
+
+  warning (message) {
+    warnbus.$emit('warn', message);
   }
 
   getResult () {

@@ -1,0 +1,21 @@
+{
+  "name": "TunnelAssist",
+  "description": "A SPA for assist calculate tunnel model by VUE2.",
+  "version": "1.0.0",
+  "author": "zthxxx <zth_9451@qq.com>",
+  "private": true,
+  "main": "index.js",
+  "devDependencies": {
+    "electron": "^1.6.10",
+    "electron-builder": "^18.3.0"
+  },
+  "engines": {
+    "node": ">= 4.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ]
+}

@@ -4,15 +4,17 @@
   "version": "1.0.0",
   "author": "zthxxx <zth_9451@qq.com>",
   "private": true,
+  "main": "index.js",
   "scripts": {
     "dev": "node build/dev-server.js",
-    "start": "node build/dev-server.js",
     "build": "node build/build.js",
+    "app": "electron ./app",
+    "app-build": "build --projectDir ./app",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
-    "publish": "ghp-import -p dist"
+    "publish": "ghp-import -p app"
   },
   "dependencies": {
     "vue": "^2.2.6",
@@ -36,6 +38,8 @@
     "cross-env": "^4.0.0",
     "cross-spawn": "^5.0.1",
     "css-loader": "^0.28.0",
+    "electron": "^1.6.10",
+    "electron-builder": "^18.3.0",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^6.2.1",
     "eslint-friendly-formatter": "^2.0.7",
